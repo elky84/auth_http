@@ -94,8 +94,11 @@ class AuthHttp {
   static Future<http.Response> _postCall(http.Response response, String url,
       Map<String, String> headers, Object body) async {
     if (response.statusCode == 200) {
-      _commonHeaders[_requestAuthHeader] =
-          response.headers[_responseAuthHeader] as String;
+      var resAuthHeader = response.headers[_responseAuthHeader];
+      if (resAuthHeader != null) {
+        _commonHeaders[_requestAuthHeader] = resAuthHeader as String;
+      }
+
       return response;
     } else if (response.statusCode == 401) {
       if (_refreshTokenFunction == null) return response;

@@ -1,6 +1,6 @@
 name: auth_http
 description: A package that transmits authentication token as header and retry refreshToken in case of authentication failure
-version: 0.0.4
+version: 0.0.5
 homepage: https://elky84.github.io
 repository: https://github.com/elky84/auth_http
 
